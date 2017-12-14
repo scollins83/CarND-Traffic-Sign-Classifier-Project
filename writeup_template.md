@@ -70,7 +70,24 @@ Here is the distribution of the entire dataset, including target variables from 
 together so the best approximation of the total distribution of the entire population can be seen (in real life, I tend to 
 do this from historical data that is completely separate from the validation and testing sets, but since this dataset is 
 not part of a larger data ecosystem, I just combined the original three sets for exploration). 
+Also note that although the sign classes are numeric in this case, this is a distibution of sign class counts, not the 
+integer value of the signs' class. 
+#### Entire dataset:
 ![alt text][total_dist]
+
+Now, to compare, here are the distributions of the similar subsets. 
+#### Train Dataset: 
+![alt_text][train_dist]  
+  
+  
+#### Validation Dataset:  
+![alt_text][valid_dist]  
+  
+  
+#### Test Dataset:
+![alt_text][test_dist]
+  
+ 
 
 ### Design and Test a Model Architecture
 
