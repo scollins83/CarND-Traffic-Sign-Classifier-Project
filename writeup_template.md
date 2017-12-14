@@ -25,35 +25,52 @@ The goals / steps of this project are the following:
 [image6]: ./examples/placeholder.png "Traffic Sign 3"
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
+[train_dist]: ./writeup_pics/train_class_dist.png "Training target distribution"
+[test_dist]: ./writeup_pics/test_class_dist.png "Testing target distribution"
+[valid_dist]: ./writeup_pics/valid_class_dist.png "Validation target distribution"
+[total_dist]: ./writeup_pics/total_class_dist.png "Total target value distribution"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
----
+
 ### Writeup / README
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
-
+ [My Project Notebook](CarND-Traffic-Sign-Classifier-Project/Traffic_Sign_Classifier_SEC.ipynb)
+ 
 ### Data Set Summary & Exploration
 
 #### 1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
-I used the pandas library to calculate summary statistics of the traffic
+I used functions found in the pickled pandas DataFrame object that held the images to calculate summary statistics of the traffic
 signs data set:
 
-* The size of training set is ?
-* The size of the validation set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+* The size of training set is: 34,799 examples
+* The size of the validation set is: 4,410 examples
+* The size of test set is: 12,360 examples
+* The shape of a traffic sign image is: 32 x 32 x 3 (32x32 pixels for height and width, with three color channels)
+* The number of unique classes/labels in the data set is: 43
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+In initially exploring the dataset, knowing how the distribution of values of a target variable lies is very important. 
+Not only do machine learning algorithms often take distributions into account, but it is also important to check to make 
+sure any holdout sets for validation and testing give a good approximation of the total data distribution. For example,
+if this dataset total at any given point in time has roughly 50% stop signs and the remainder of the signs distributed
+pretty evenly, a validation set that only has 5% of stop signs would likely be problematic. Also, depending on the
+algorithms used, it may be necessary to downsample or oversample some classes in order to ensure the algorithm will train 
+correctly. 
 
-![alt text][image1]
+For brevity's sake, I will include only images I used for the target variable here. In non-image datasets, I often use 
+the Seaborn package's 'factorplot' to do a visual distribution and correlation check on ALL variables in the dataset.
+
+Here is the distribution of the entire dataset, including target variables from the train, test, and validation sets all 
+together so the best approximation of the total distribution of the entire population can be seen (in real life, I tend to 
+do this from historical data that is completely separate from the validation and testing sets, but since this dataset is 
+not part of a larger data ecosystem, I just combined the original three sets for exploration). 
+![alt text][total_dist]
 
 ### Design and Test a Model Architecture
 
