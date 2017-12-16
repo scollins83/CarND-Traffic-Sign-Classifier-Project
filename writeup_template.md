@@ -29,6 +29,7 @@ The goals / steps of this project are the following:
 [test_dist]: ./writeup_pics/test_class_dist.png "Testing target distribution"
 [valid_dist]: ./writeup_pics/valid_class_dist.png "Validation target distribution"
 [total_dist]: ./writeup_pics/total_class_dist.png "Total target value distribution"
+[gray_preprocess]: ./writeup_pics/grayscale_preprocess.png "Grayscale preprocessing example."
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -73,19 +74,19 @@ not part of a larger data ecosystem, I just combined the original three sets for
 Also note that although the sign classes are numeric in this case, this is a distibution of sign class counts, not the 
 integer value of the signs' class. 
 #### Entire dataset:
-![alt text][total_dist]
+![total distribution][total_dist]
 
 Now, to compare, here are the distributions of the similar subsets. 
 #### Train Dataset: 
-![alt_text][train_dist]  
+![training distribution][train_dist]  
   
   
 #### Validation Dataset:  
-![alt_text][valid_dist]  
+![validation distribution][valid_dist]  
   
   
 #### Test Dataset:
-![alt_text][test_dist]
+![test distribution][test_dist]
   
  
 
@@ -93,11 +94,14 @@ Now, to compare, here are the distributions of the similar subsets.
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I decided to convert the images to grayscale because ...
+To preprocess the images prior to training a convolutional model on it, I did a few things. 
+While grayscale was used as an option in other labs for this course, I noticed during training that it did not 
+appear to yield as good of an accuracy score as just leaving 3 dimensions for color in the images, so I removed this 
+step. 
 
-Here is an example of a traffic sign image before and after grayscaling.
-
-![alt text][image2]
+**Here is an image, first as-is, and next with grayscaling applied:**
+![alt_text][[normal_preprocess]
+![alt text][gray_preprocess]
 
 As a last step, I normalized the image data because ...
 
