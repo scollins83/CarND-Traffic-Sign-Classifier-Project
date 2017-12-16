@@ -1,7 +1,6 @@
 # **Traffic Sign Recognition** 
 
-## Writeup Template
-
+## Writeup - Sara Collins
 ---
 
 **Build a Traffic Sign Recognition Project**
@@ -29,7 +28,8 @@ The goals / steps of this project are the following:
 [test_dist]: ./writeup_pics/test_class_dist.png "Testing target distribution"
 [valid_dist]: ./writeup_pics/valid_class_dist.png "Validation target distribution"
 [total_dist]: ./writeup_pics/total_class_dist.png "Total target value distribution"
-[gray_preprocess]: ./writeup_pics/grayscale_preprocess.png "Grayscale preprocessing example."
+[original_preprocess]: ./writeup_pics/total_class_dist.png "Original preprocessing image"
+[gray_scale_only]: ./writeup_pics/gray_scale_only.png "Grayscale preprocessing example"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -99,9 +99,11 @@ While grayscale was used as an option in other labs for this course, I noticed d
 appear to yield as good of an accuracy score as just leaving 3 dimensions for color in the images, so I removed this 
 step. 
 
-**Here is an image, first as-is, and next with grayscaling applied:**
-![alt_text][[normal_preprocess]
-![alt text][gray_preprocess]
+**Original Image:**
+![alt_text][original_preprocess]
+
+**Gray-scale applied to original image:**
+![alt text][gray_scale_only]
 
 As a last step, I normalized the image data because ...
 
