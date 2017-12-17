@@ -28,7 +28,7 @@ The goals / steps of this project are the following:
 [test_dist]: ./writeup_pics/test_class_dist.png "Testing target distribution"
 [valid_dist]: ./writeup_pics/valid_class_dist.png "Validation target distribution"
 [total_dist]: ./writeup_pics/total_class_dist.png "Total target value distribution"
-[original_preprocess]: ./writeup_pics/total_class_dist.png "Original preprocessing image"
+[original_preprocess]: ./writeup_pics/original_preprocess.png "Original preprocessing image"
 [gray_scale_only]: ./writeup_pics/gray_scale_only.png "Grayscale preprocessing example"
 
 ## Rubric Points
@@ -99,10 +99,10 @@ While grayscale was used as an option in other labs for this course, I noticed d
 appear to yield as good of an accuracy score as just leaving 3 dimensions for color in the images, so I removed this 
 step. 
 
-**Original Image:**
+**Original Image:**  
 ![alt_text][original_preprocess]
 
-**Gray-scale applied to original image:**
+**Gray-scale applied to original image:**  
 ![alt text][gray_scale_only]
 
 As a last step, I normalized the image data because ...
