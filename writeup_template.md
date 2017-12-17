@@ -98,7 +98,7 @@ Now, to compare, here are the distributions of the similar subsets.
 To preprocess the images prior to training a convolutional model on it, I did a few things. 
 While grayscale was used as an option in other labs for this course, I noticed during training that it did not 
 appear to yield as good of an accuracy score as just leaving 3 dimensions for color in the images, so I removed this 
-step. 
+step. Thinking critically about this, while markings on signs are usually very distinct, the color of a traffic sign also usually conveys important information to drivers, particularly for sign groupings, and presence or absence of certain colors might help a classifier be more certain of the probability of a sign. 
 
 **Original Image:**  
 ![alt_text][original_preprocess]
