@@ -173,9 +173,9 @@ Here are fifteen more German traffic signs that I found on the web:
 
 ![alt text][fifteen_images]  
   
-Numbering the images as:
-1.  2.  3.  
-4.  5.  6. ....
+Numbering the images as:  
+1   2   3   
+4   5   6  ....
 
 Images 4, 6, 7, 9, 12, 13, and 15 look as though they should readily be easy to recognize by the classifier. 
 Things that may make the images difficult to classify:  
@@ -196,14 +196,24 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| 1 - Road work     		| Roundabout mandatory   									| 
+| 2 - Roundabout mandatory     			| Speed limit (20km/h) 										|
+| 3 - Speed limit (80km/h)					| Speed limit (80km/h)										|
+| 4 - Stop	      		| Stop					 				|
+| 5 - Speed limit (70km/h)	| Speed limit (30km/h)      							|
+| 6 - General caution    		| General caution  									| 
+| 7 - No entry     			| No entry 										|
+| 8 - Road work				| Road work										|
+| 9 - Speed limit (30km/h)     	| Speed limit (30km/h)						|
+| 10 - Wild animals crossing | Wild animals crossing    				|
+| 11 - Turn right ahead     		| Turn right ahead  									| 
+| 12 - Stop     			| Stop 										|
+| 13 - Speed limit (70km/h)				| Speed limit (70km/h)											|
+| 14 - Bicycles crossing      		| Bicycles crossing			 				|
+| 15 - Stop		| Stop     							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 12 of the 15 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of 6.7%. So... even though the test set indicates severe overfitting, a random sample of fifteen indicates a much better performance. 
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
@@ -211,16 +221,362 @@ The code for making predictions on my final model is located in the 11th cell of
 
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+Record: 1  
+     Probability #1:  
+     Class Label: Roundabout mandatory  
+     Probability Value - 3.63138   
+     
+     Probability #2:  
+     Class Label: Ahead only  
+     Probability Value - 0.246165   
+     
+     Probability #3:   
+     Class Label: Road work  
+     Probability Value - 0.0553061   
+     
+     Probability #4:   
+     Class Label: Speed limit (50km/h)   
+     Probability Value - -0.604808   
+     
+     Probability #5:    
+     Class Label: Keep right   
+     Probability Value - -1.60497   
 
 
-For the second image ... 
+
+
+Record: 2   
+     Probability #1:    
+     Class Label: Speed limit (20km/h)   
+     Probability Value - 4.48252   
+
+     Probability #2: 
+     Class Label: Speed limit (70km/h)
+     Probability Value - 4.19348
+
+     Probability #3: 
+     Class Label: Roundabout mandatory
+     Probability Value - 2.55606
+
+     Probability #4: 
+     Class Label: Speed limit (30km/h)
+     Probability Value - 2.2762
+
+     Probability #5: 
+     Class Label: Speed limit (50km/h)
+     Probability Value - 2.25183
+
+
+
+
+Record: 3
+     Probability #1: 
+     Class Label: Speed limit (80km/h)
+     Probability Value - 9.20117
+
+     Probability #2: 
+     Class Label: Speed limit (60km/h)
+     Probability Value - 6.40215
+
+     Probability #3: 
+     Class Label: Speed limit (120km/h)
+     Probability Value - 5.93974
+
+     Probability #4: 
+     Class Label: Speed limit (100km/h)
+     Probability Value - 5.02156
+
+     Probability #5: 
+     Class Label: Speed limit (50km/h)
+     Probability Value - 4.87933
+
+
+
+
+Record: 4
+     Probability #1: 
+     Class Label: Stop
+     Probability Value - 5.67519
+
+     Probability #2: 
+     Class Label: No entry
+     Probability Value - 0.058724
+
+     Probability #3: 
+     Class Label: No passing for vehicles over 3.5 metric tons
+     Probability Value - -0.941598
+
+     Probability #4: 
+     Class Label: Keep right
+     Probability Value - -1.5766
+
+     Probability #5: 
+     Class Label: Go straight or right
+     Probability Value - -1.60699
+
+
+
+
+Record: 5
+     Probability #1: 
+     Class Label: Speed limit (30km/h)
+     Probability Value - 4.73191
+
+     Probability #2: 
+     Class Label: Speed limit (70km/h)
+     Probability Value - 3.84631
+
+     Probability #3: 
+     Class Label: Yield
+     Probability Value - 0.0805694
+
+     Probability #4: 
+     Class Label: Speed limit (50km/h)
+     Probability Value - -0.155365
+
+     Probability #5: 
+     Class Label: Roundabout mandatory
+     Probability Value - -2.53838
+
+
+
+
+Record: 6
+     Probability #1: 
+     Class Label: General caution
+     Probability Value - 12.2029
+
+     Probability #2: 
+     Class Label: Traffic signals
+     Probability Value - 7.98483
+
+     Probability #3: 
+     Class Label: Right-of-way at the next intersection
+     Probability Value - 7.7981
+
+     Probability #4: 
+     Class Label: Wild animals crossing
+     Probability Value - 5.14235
+
+     Probability #5: 
+     Class Label: Pedestrians
+     Probability Value - 4.21125
+
+
+
+
+Record: 7
+     Probability #1: 
+     Class Label: No entry
+     Probability Value - 11.1719
+
+     Probability #2: 
+     Class Label: No passing
+     Probability Value - 3.14426
+
+     Probability #3: 
+     Class Label: Stop
+     Probability Value - 1.96417
+
+     Probability #4: 
+     Class Label: End of no passing
+     Probability Value - 1.50554
+
+     Probability #5: 
+     Class Label: Turn right ahead
+     Probability Value - 0.290745
+
+
+
+
+Record: 8
+     Probability #1: 
+     Class Label: Road work
+     Probability Value - 6.95533
+
+     Probability #2: 
+     Class Label: Dangerous curve to the right
+     Probability Value - 2.07115
+
+     Probability #3: 
+     Class Label: Bumpy road
+     Probability Value - 1.70295
+
+     Probability #4: 
+     Class Label: Wild animals crossing
+     Probability Value - 1.23056
+
+     Probability #5: 
+     Class Label: Bicycles crossing
+     Probability Value - 0.563636
+
+
+
+
+Record: 9
+     Probability #1: 
+     Class Label: Speed limit (30km/h)
+     Probability Value - 1.85274
+
+     Probability #2: 
+     Class Label: Speed limit (70km/h)
+     Probability Value - 1.5838
+
+     Probability #3: 
+     Class Label: Stop
+     Probability Value - 1.24275
+
+     Probability #4: 
+     Class Label: Roundabout mandatory
+     Probability Value - 0.569953
+
+     Probability #5: 
+     Class Label: Speed limit (50km/h)
+     Probability Value - -0.105905
+
+
+
+
+Record: 10
+     Probability #1: 
+     Class Label: Wild animals crossing
+     Probability Value - 8.16427
+
+     Probability #2: 
+     Class Label: Dangerous curve to the left
+     Probability Value - 5.15332
+
+     Probability #3: 
+     Class Label: Double curve
+     Probability Value - 3.95471
+
+     Probability #4: 
+     Class Label: Keep left
+     Probability Value - 1.37947
+
+     Probability #5: 
+     Class Label: Right-of-way at the next intersection
+     Probability Value - 0.871015
+
+
+
+
+Record: 11
+     Probability #1: 
+     Class Label: Turn right ahead
+     Probability Value - 8.66461
+
+     Probability #2: 
+     Class Label: Ahead only
+     Probability Value - 4.46153
+
+     Probability #3: 
+     Class Label: No passing for vehicles over 3.5 metric tons
+     Probability Value - 1.87631
+
+     Probability #4: 
+     Class Label: Speed limit (60km/h)
+     Probability Value - 0.827817
+
+     Probability #5: 
+     Class Label: Roundabout mandatory
+     Probability Value - 0.532018
+
+
+
+
+Record: 12
+     Probability #1: 
+     Class Label: Stop
+     Probability Value - 8.29253
+
+     Probability #2: 
+     Class Label: Keep right
+     Probability Value - -0.0729395
+
+     Probability #3: 
+     Class Label: Go straight or right
+     Probability Value - -0.0951887
+
+     Probability #4: 
+     Class Label: Turn right ahead
+     Probability Value - -1.21148
+
+     Probability #5: 
+     Class Label: Bicycles crossing
+     Probability Value - -1.59177
+
+
+
+
+Record: 13
+     Probability #1: 
+     Class Label: Speed limit (70km/h)
+     Probability Value - 4.35527
+
+     Probability #2: 
+     Class Label: No passing for vehicles over 3.5 metric tons
+     Probability Value - 2.7583
+
+     Probability #3: 
+     Class Label: Priority road
+     Probability Value - 2.70417
+
+     Probability #4: 
+     Class Label: Speed limit (50km/h)
+     Probability Value - 2.21734
+
+     Probability #5: 
+     Class Label: Speed limit (30km/h)
+     Probability Value - 1.97318
+
+
+
+
+Record: 14
+     Probability #1: 
+     Class Label: Bicycles crossing
+     Probability Value - 6.62385
+
+     Probability #2: 
+     Class Label: Slippery road
+     Probability Value - 5.86016
+
+     Probability #3: 
+     Class Label: Road work
+     Probability Value - 5.59542
+
+     Probability #4: 
+     Class Label: Wild animals crossing
+     Probability Value - 3.66721
+
+     Probability #5: 
+     Class Label: Road narrows on the right
+     Probability Value - 3.37602
+
+
+
+
+Record: 15
+     Probability #1: 
+     Class Label: Stop
+     Probability Value - -0.422354
+
+     Probability #2: 
+     Class Label: Speed limit (20km/h)
+     Probability Value - -3.32931
+
+     Probability #3: 
+     Class Label: Roundabout mandatory
+     Probability Value - -4.17921
+
+     Probability #4: 
+     Class Label: Speed limit (30km/h)
+     Probability Value - -4.37682
+
+     Probability #5: 
+     Class Label: Yield
+     Probability Value - -5.15678
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
