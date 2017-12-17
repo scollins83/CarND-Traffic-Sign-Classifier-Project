@@ -16,14 +16,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[fifteen_images]: ./five_image_test_set/fifteen_additional_pictures.png "Traffic Sign 1"
 [train_dist]: ./writeup_pics/train_class_dist.png "Training target distribution"
 [test_dist]: ./writeup_pics/test_class_dist.png "Testing target distribution"
 [valid_dist]: ./writeup_pics/valid_class_dist.png "Validation target distribution"
@@ -178,9 +171,8 @@ The training and validation sets appeared to be working well together during tra
 
 Here are fifteen more German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
-
+![alt text][fifteen_images]  
+  
 The first image might be difficult to classify because ...
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
