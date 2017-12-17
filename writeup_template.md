@@ -136,33 +136,47 @@ I used the LeNet model as the basis for the traffic sign classification model. T
  
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an ....
+To train the model, I cycled through various hyperparameters combinations and preprocessing steps.
+The best results I obtained included an Adam optimizer, used 40 epochs, had a batch size of 128, and
+a learning rate of .0001.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+(Training: Not printed during last run)
+* validation set accuracy of 64.9%
+* test set accuracy of 6.7%
 
 If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
+* What was the first architecture that was tried and why was it chosen? 
+I tried the LeNet architecture as it was during the lecture that introduced it. In the initial trial,
+I tried using a grayscale transformation on the image as well. 
 * What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
+Based on the validation metrics coming out during training, I ended up readjusting the batch size and 
+noticed that it was higher without the grayscaled images. 
+* How was the architecture adjusted and why was it adjusted? 
+I attempted to add a convolutional layer to help what appeared to be underfitting of the model, and even just adding a 
+single additional convolutional layer appeared to make the model overfit badly. From there I also adjusted preprocessing 
+and hyperparameters, but it was still overfitting, so I took the additional convolutional layer back out even though it 
+appears to have performed poorly on the test set. 
 * Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
+I adjusted batch size so it always was a double of the next one higher- 128 appeared to give the best results given the rest of the setup and hyperparameters. The number of epochs that seemed to run best was 40. I tried up to 80, but the model appeared to converge at around 42-ish, so I noted that I had the best results with 40 epochs. Learning rate also seemed to have the validation metric 'hop around' too much during training at the original .001, so I decreased it to .0001 with what appeared to be better results. 
+* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem?
+Convolutional layers are important because they help make the best sense of the model. Pooling layers are also important to try to remove additional 'noisy' features from the model. Activation functions are important to convert to nonlinearity and also keep the gradients from shrinking and/or vanishing. 
 If a well known architecture was chosen:
-* What architecture was chosen?
+* What architecture was chosen?  
+LeNet
 * Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+It had a few convolutional layers built in already and is used in other problems for identifying details, so I figured it would be a good starting point for this problem as well. 
+* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?  
+The training and validation sets appeared to be working well together during training itself, by not diverging and moving/converging in an appropriate fashion. However, performance on this particular testing set would indicate that severe overfitting occurred. 
  
 
 ### Test a Model on New Images
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+Here are fifteen more German traffic signs that I found on the web:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
 ![alt text][image7] ![alt text][image8]
