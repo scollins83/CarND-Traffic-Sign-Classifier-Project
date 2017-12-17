@@ -30,6 +30,7 @@ The goals / steps of this project are the following:
 [total_dist]: ./writeup_pics/total_class_dist.png "Total target value distribution"
 [original_preprocess]: ./writeup_pics/original_preprocess.png "Original preprocessing image"
 [gray_scale_only]: ./writeup_pics/gray_scale_only.png "Grayscale preprocessing example"
+[normal_preprocess]: ./writeup_pics/normal_preprocess.png "Normalized image"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -105,18 +106,12 @@ step.
 **Gray-scale applied to original image:**  
 ![alt text][gray_scale_only]
 
-As a last step, I normalized the image data because ...
+Instead of applying gray-scale since it appeared to make the accuracy score worse, I just normalized the image data to elimnate outlier pixel values and to make sure the pixel values have a zero mean and equal variance. 
 
-I decided to generate additional data because ... 
-
-To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
+**Normalization applied to original image:**  
+![alt_text][normal_preprocess]
+  
+  
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
