@@ -269,314 +269,314 @@ Record: 2
 
 
 
-Record: 3
-     Probability #1: 
-     Class Label: Speed limit (80km/h)
-     Probability Value - 9.20117
+Record: 3   
+     Probability #1:    
+     Class Label: Speed limit (80km/h)   
+     Probability Value - 9.20117   
 
-     Probability #2: 
-     Class Label: Speed limit (60km/h)
-     Probability Value - 6.40215
+     Probability #2:   
+     Class Label: Speed limit (60km/h)   
+     Probability Value - 6.40215   
 
-     Probability #3: 
-     Class Label: Speed limit (120km/h)
-     Probability Value - 5.93974
+     Probability #3:   
+     Class Label: Speed limit (120km/h)   
+     Probability Value - 5.93974   
 
-     Probability #4: 
-     Class Label: Speed limit (100km/h)
-     Probability Value - 5.02156
+     Probability #4:   
+     Class Label: Speed limit (100km/h)   
+     Probability Value - 5.02156   
 
-     Probability #5: 
-     Class Label: Speed limit (50km/h)
-     Probability Value - 4.87933
-
-
-
-
-Record: 4
-     Probability #1: 
-     Class Label: Stop
-     Probability Value - 5.67519
-
-     Probability #2: 
-     Class Label: No entry
-     Probability Value - 0.058724
-
-     Probability #3: 
-     Class Label: No passing for vehicles over 3.5 metric tons
-     Probability Value - -0.941598
-
-     Probability #4: 
-     Class Label: Keep right
-     Probability Value - -1.5766
-
-     Probability #5: 
-     Class Label: Go straight or right
-     Probability Value - -1.60699
+     Probability #5:   
+     Class Label: Speed limit (50km/h)   
+     Probability Value - 4.87933   
 
 
 
 
-Record: 5
-     Probability #1: 
-     Class Label: Speed limit (30km/h)
-     Probability Value - 4.73191
+Record: 4   
+     Probability #1:   
+     Class Label: Stop   
+     Probability Value - 5.67519   
 
-     Probability #2: 
-     Class Label: Speed limit (70km/h)
-     Probability Value - 3.84631
+     Probability #2:   
+     Class Label: No entry   
+     Probability Value - 0.058724   
 
-     Probability #3: 
-     Class Label: Yield
-     Probability Value - 0.0805694
+     Probability #3:   
+     Class Label: No passing for vehicles over 3.5 metric tons   
+     Probability Value - -0.941598   
 
-     Probability #4: 
-     Class Label: Speed limit (50km/h)
-     Probability Value - -0.155365
+     Probability #4:   
+     Class Label: Keep right   
+     Probability Value - -1.5766   
 
-     Probability #5: 
-     Class Label: Roundabout mandatory
-     Probability Value - -2.53838
+     Probability #5:   
+     Class Label: Go straight or right   
+     Probability Value - -1.60699   
+
+
+
+
+Record: 5   
+     Probability #1:   
+     Class Label: Speed limit (30km/h)   
+     Probability Value - 4.73191   
+
+     Probability #2:   
+     Class Label: Speed limit (70km/h)   
+     Probability Value - 3.84631   
+
+     Probability #3:   
+     Class Label: Yield   
+     Probability Value - 0.0805694   
+
+     Probability #4:   
+     Class Label: Speed limit (50km/h)   
+     Probability Value - -0.155365   
+
+     Probability #5:   
+     Class Label: Roundabout mandatory   
+     Probability Value - -2.53838   
 
 
 
 
 Record: 6
-     Probability #1: 
-     Class Label: General caution
-     Probability Value - 12.2029
+     Probability #1:   
+     Class Label: General caution   
+     Probability Value - 12.2029   
 
-     Probability #2: 
-     Class Label: Traffic signals
-     Probability Value - 7.98483
+     Probability #2:   
+     Class Label: Traffic signals   
+     Probability Value - 7.98483   
 
-     Probability #3: 
-     Class Label: Right-of-way at the next intersection
-     Probability Value - 7.7981
+     Probability #3:   
+     Class Label: Right-of-way at the next intersection   
+     Probability Value - 7.7981   
 
-     Probability #4: 
-     Class Label: Wild animals crossing
-     Probability Value - 5.14235
+     Probability #4:   
+     Class Label: Wild animals crossing   
+     Probability Value - 5.14235   
 
-     Probability #5: 
-     Class Label: Pedestrians
-     Probability Value - 4.21125
+     Probability #5:   
+     Class Label: Pedestrians   
+     Probability Value - 4.21125   
 
 
 
 
 Record: 7
-     Probability #1: 
-     Class Label: No entry
-     Probability Value - 11.1719
+     Probability #1:   
+     Class Label: No entry   
+     Probability Value - 11.1719   
 
-     Probability #2: 
-     Class Label: No passing
-     Probability Value - 3.14426
+     Probability #2:   
+     Class Label: No passing   
+     Probability Value - 3.14426   
 
-     Probability #3: 
-     Class Label: Stop
-     Probability Value - 1.96417
+     Probability #3:   
+     Class Label: Stop   
+     Probability Value - 1.96417   
 
-     Probability #4: 
-     Class Label: End of no passing
-     Probability Value - 1.50554
+     Probability #4:   
+     Class Label: End of no passing   
+     Probability Value - 1.50554   
 
-     Probability #5: 
-     Class Label: Turn right ahead
-     Probability Value - 0.290745
-
-
-
-
-Record: 8
-     Probability #1: 
-     Class Label: Road work
-     Probability Value - 6.95533
-
-     Probability #2: 
-     Class Label: Dangerous curve to the right
-     Probability Value - 2.07115
-
-     Probability #3: 
-     Class Label: Bumpy road
-     Probability Value - 1.70295
-
-     Probability #4: 
-     Class Label: Wild animals crossing
-     Probability Value - 1.23056
-
-     Probability #5: 
-     Class Label: Bicycles crossing
-     Probability Value - 0.563636
+     Probability #5:   
+     Class Label: Turn right ahead   
+     Probability Value - 0.290745   
 
 
 
 
-Record: 9
-     Probability #1: 
-     Class Label: Speed limit (30km/h)
-     Probability Value - 1.85274
+Record: 8   
+     Probability #1:   
+     Class Label: Road work   
+     Probability Value - 6.95533   
 
-     Probability #2: 
-     Class Label: Speed limit (70km/h)
-     Probability Value - 1.5838
+     Probability #2:   
+     Class Label: Dangerous curve to the right   
+     Probability Value - 2.07115   
 
-     Probability #3: 
-     Class Label: Stop
-     Probability Value - 1.24275
+     Probability #3:   
+     Class Label: Bumpy road   
+     Probability Value - 1.70295   
 
-     Probability #4: 
-     Class Label: Roundabout mandatory
-     Probability Value - 0.569953
+     Probability #4:   
+     Class Label: Wild animals crossing   
+     Probability Value - 1.23056   
 
-     Probability #5: 
-     Class Label: Speed limit (50km/h)
-     Probability Value - -0.105905
-
-
+     Probability #5:   
+     Class Label: Bicycles crossing   
+     Probability Value - 0.563636   
 
 
-Record: 10
-     Probability #1: 
-     Class Label: Wild animals crossing
-     Probability Value - 8.16427
 
-     Probability #2: 
-     Class Label: Dangerous curve to the left
-     Probability Value - 5.15332
 
-     Probability #3: 
-     Class Label: Double curve
-     Probability Value - 3.95471
+Record: 9   
+     Probability #1:   
+     Class Label: Speed limit (30km/h)   
+     Probability Value - 1.85274   
 
-     Probability #4: 
-     Class Label: Keep left
-     Probability Value - 1.37947
+     Probability #2:   
+     Class Label: Speed limit (70km/h)   
+     Probability Value - 1.5838   
 
-     Probability #5: 
-     Class Label: Right-of-way at the next intersection
-     Probability Value - 0.871015
+     Probability #3:   
+     Class Label: Stop   
+     Probability Value - 1.24275   
+
+     Probability #4:   
+     Class Label: Roundabout mandatory   
+     Probability Value - 0.569953   
+
+     Probability #5:   
+     Class Label: Speed limit (50km/h)   
+     Probability Value - -0.105905   
+
+
+
+
+Record: 10   
+     Probability #1:   
+     Class Label: Wild animals crossing   
+     Probability Value - 8.16427   
+
+     Probability #2:   
+     Class Label: Dangerous curve to the left   
+     Probability Value - 5.15332   
+
+     Probability #3:   
+     Class Label: Double curve   
+     Probability Value - 3.95471   
+
+     Probability #4:   
+     Class Label: Keep left   
+     Probability Value - 1.37947   
+
+     Probability #5:   
+     Class Label: Right-of-way at the next intersection   
+     Probability Value - 0.871015   
 
 
 
 
 Record: 11
-     Probability #1: 
-     Class Label: Turn right ahead
-     Probability Value - 8.66461
+     Probability #1:   
+     Class Label: Turn right ahead   
+     Probability Value - 8.66461   
 
-     Probability #2: 
-     Class Label: Ahead only
-     Probability Value - 4.46153
+     Probability #2:   
+     Class Label: Ahead only   
+     Probability Value - 4.46153   
 
-     Probability #3: 
-     Class Label: No passing for vehicles over 3.5 metric tons
-     Probability Value - 1.87631
+     Probability #3:   
+     Class Label: No passing for vehicles over 3.5 metric tons   
+     Probability Value - 1.87631   
 
-     Probability #4: 
-     Class Label: Speed limit (60km/h)
-     Probability Value - 0.827817
+     Probability #4:   
+     Class Label: Speed limit (60km/h)   
+     Probability Value - 0.827817   
 
-     Probability #5: 
-     Class Label: Roundabout mandatory
-     Probability Value - 0.532018
-
-
-
-
-Record: 12
-     Probability #1: 
-     Class Label: Stop
-     Probability Value - 8.29253
-
-     Probability #2: 
-     Class Label: Keep right
-     Probability Value - -0.0729395
-
-     Probability #3: 
-     Class Label: Go straight or right
-     Probability Value - -0.0951887
-
-     Probability #4: 
-     Class Label: Turn right ahead
-     Probability Value - -1.21148
-
-     Probability #5: 
-     Class Label: Bicycles crossing
-     Probability Value - -1.59177
+     Probability #5:   
+     Class Label: Roundabout mandatory   
+     Probability Value - 0.532018   
 
 
 
 
-Record: 13
-     Probability #1: 
-     Class Label: Speed limit (70km/h)
-     Probability Value - 4.35527
+Record: 12   
+     Probability #1:    
+     Class Label: Stop   
+     Probability Value - 8.29253   
 
-     Probability #2: 
-     Class Label: No passing for vehicles over 3.5 metric tons
-     Probability Value - 2.7583
+     Probability #2:   
+     Class Label: Keep right   
+     Probability Value - -0.0729395   
 
-     Probability #3: 
-     Class Label: Priority road
-     Probability Value - 2.70417
+     Probability #3:   
+     Class Label: Go straight or right   
+     Probability Value - -0.0951887   
 
-     Probability #4: 
-     Class Label: Speed limit (50km/h)
-     Probability Value - 2.21734
+     Probability #4:   
+     Class Label: Turn right ahead   
+     Probability Value - -1.21148   
 
-     Probability #5: 
-     Class Label: Speed limit (30km/h)
-     Probability Value - 1.97318
-
-
+     Probability #5:   
+     Class Label: Bicycles crossing   
+     Probability Value - -1.59177   
 
 
-Record: 14
-     Probability #1: 
-     Class Label: Bicycles crossing
-     Probability Value - 6.62385
 
-     Probability #2: 
-     Class Label: Slippery road
-     Probability Value - 5.86016
 
-     Probability #3: 
-     Class Label: Road work
-     Probability Value - 5.59542
+Record: 13   
+     Probability #1:   
+     Class Label: Speed limit (70km/h)   
+     Probability Value - 4.35527   
 
-     Probability #4: 
-     Class Label: Wild animals crossing
-     Probability Value - 3.66721
+     Probability #2:   
+     Class Label: No passing for vehicles over 3.5 metric tons   
+     Probability Value - 2.7583   
 
-     Probability #5: 
-     Class Label: Road narrows on the right
-     Probability Value - 3.37602
+     Probability #3:   
+     Class Label: Priority road   
+     Probability Value - 2.70417   
+
+     Probability #4:   
+     Class Label: Speed limit (50km/h)   
+     Probability Value - 2.21734   
+
+     Probability #5:   
+     Class Label: Speed limit (30km/h)   
+     Probability Value - 1.97318   
+
+
+
+
+Record: 14   
+     Probability #1:   
+     Class Label: Bicycles crossing   
+     Probability Value - 6.62385   
+
+     Probability #2:   
+     Class Label: Slippery road   
+     Probability Value - 5.86016   
+
+     Probability #3:   
+     Class Label: Road work   
+     Probability Value - 5.59542   
+
+     Probability #4:   
+     Class Label: Wild animals crossing   
+     Probability Value - 3.66721   
+
+     Probability #5:   
+     Class Label: Road narrows on the right   
+     Probability Value - 3.37602   
 
 
 
 
 Record: 15
-     Probability #1: 
-     Class Label: Stop
-     Probability Value - -0.422354
+     Probability #1:   
+     Class Label: Stop   
+     Probability Value - -0.422354   
 
-     Probability #2: 
-     Class Label: Speed limit (20km/h)
-     Probability Value - -3.32931
+     Probability #2:   
+     Class Label: Speed limit (20km/h)   
+     Probability Value - -3.32931   
 
-     Probability #3: 
-     Class Label: Roundabout mandatory
-     Probability Value - -4.17921
+     Probability #3:   
+     Class Label: Roundabout mandatory   
+     Probability Value - -4.17921   
 
-     Probability #4: 
-     Class Label: Speed limit (30km/h)
-     Probability Value - -4.37682
+     Probability #4:   
+     Class Label: Speed limit (30km/h)   
+     Probability Value - -4.37682   
 
-     Probability #5: 
-     Class Label: Yield
-     Probability Value - -5.15678
+     Probability #5:   
+     Class Label: Yield   
+     Probability Value - -5.15678   
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
