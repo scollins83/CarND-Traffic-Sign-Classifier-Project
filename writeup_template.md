@@ -173,7 +173,22 @@ Here are fifteen more German traffic signs that I found on the web:
 
 ![alt text][fifteen_images]  
   
-The first image might be difficult to classify because ...
+Numbering the images as:
+1.  2.  3.  
+4.  5.  6. ....
+
+Images 4, 6, 7, 9, 12, 13, and 15 look as though they should readily be easy to recognize by the classifier. 
+Things that may make the images difficult to classify:  
+1: Background building makes lines that might be easy to mix with the sign itself.  
+2: Dark image, and sign is the same base color as the background. Arrows are difficult to see.  
+3: Dark image, and number isn't easy to discern. The 80 looks like it could also be a 30.  
+5: Irregular shadows over the sign may confuse the classifier.  
+8: Dark image, and symbol is difficult to discern.  
+10: Image is 'hazy', and symbol is somewhat blurry and difficult to discern.  
+11: Image is also 'hazy'.  
+12: Image is slightly dark, which may obscure the color of the stop sign.  
+14: Image is slightly dark, although symbol is fairly clear.  
+
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
