@@ -132,38 +132,34 @@ I used the LeNet model as the basis for the traffic sign classification model. T
 
 To train the model, I cycled through various hyperparameters combinations and preprocessing steps.
 The best results I obtained included an Adam optimizer, used 40 epochs, had a batch size of 128, and
-a learning rate of .0001.
+a learning rate of .001. Early stopping could perhaps have been utilized, but it tended to still cycle around a bit at 40 epochs. 
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
 (Training: Not printed during last run)
-* validation set accuracy of 64.9%
-* test set accuracy of 6.7%
+* validation set accuracy of 93.9%
+* test set accuracy of 91.9%
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen? 
-I tried the LeNet architecture as it was during the lecture that introduced it. In the initial trial,
-I tried using a grayscale transformation on the image as well. 
+I tried the LeNet architecture as it was during the lecture that introduced it.
 * What were some problems with the initial architecture?
 Based on the validation metrics coming out during training, I ended up readjusting the batch size and 
-noticed that it was higher without the grayscaled images. 
+also tried different preprocessing approaches, seeing what would happen with and without normalization. In the meantime, I had to adjust the inputs and reshape the images because using the CV2 grayscale conversion method didn't yield the right explicit data shape for tensorflow to use. 
 * How was the architecture adjusted and why was it adjusted? 
-I attempted to add a convolutional layer to help what appeared to be underfitting of the model, and even just adding a 
-single additional convolutional layer appeared to make the model overfit badly. From there I also adjusted preprocessing 
-and hyperparameters, but it was still overfitting, so I took the additional convolutional layer back out even though it 
-appears to have performed poorly on the test set. 
+I attempted to add a convolutional layer to help what initially appeared to be underfitting of the model during some of my earlier trials, and even just adding a single additional convolutional layer appeared to make the model overfit badly. From there I also adjusted preprocessing and hyperparameters, but it was still overfitting, so I took the additional convolutional layer back out and my output validation metrics were much better. 
 * Which parameters were tuned? How were they adjusted and why?
-I adjusted batch size so it always was a double of the next one higher- 128 appeared to give the best results given the rest of the setup and hyperparameters. The number of epochs that seemed to run best was 40. I tried up to 80, but the model appeared to converge at around 42-ish, so I noted that I had the best results with 40 epochs. Learning rate also seemed to have the validation metric 'hop around' too much during training at the original .001, so I decreased it to .0001 with what appeared to be better results. 
+I adjusted batch size so it always was a double of the next one higher- 128 appeared to give the best results given the rest of the setup and hyperparameters. The number of epochs that seemed to run best was 40. I tried up to 80, but the model appeared to converge at around 42-ish, so I noted that I had the best results with 40 epochs. Learning rate also seemed to have the validation metric 'hop around' too much during training at the original .01, and moved quite slowly on .0001, and 0.001 appeared to have the best results. 
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem?
 Convolutional layers are important because they help make the best sense of the model. Pooling layers are also important to try to remove additional 'noisy' features from the model. Activation functions are important to convert to nonlinearity and also keep the gradients from shrinking and/or vanishing. 
 If a well known architecture was chosen:
 * What architecture was chosen?  
 LeNet
 * Why did you believe it would be relevant to the traffic sign application?
-It had a few convolutional layers built in already and is used in other problems for identifying details, so I figured it would be a good starting point for this problem as well. 
+It had a few convolutional layers built in already and is used in other problems for identifying details, so I figured it would be a good starting point for this problem as well and ended up performing sufficiently for the task at hand. 
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?  
-The training and validation sets appeared to be working well together during training itself, by not diverging and moving/converging in an appropriate fashion. However, performance on this particular testing set would indicate that severe overfitting occurred. 
+The training and validation sets appeared to be working well together during training itself, by not diverging and also moving/converging in an appropriate fashion. The test set's accuracy is slightly lower than the training set, but not significantly so, and thus it appears that the model is not reasonably overfitting. 
  
 
 ### Test a Model on New Images
@@ -174,21 +170,16 @@ Here are fifteen more German traffic signs that I found on the web:
 
 ![alt text][fifteen_images]  
   
-Numbering the images as:  
-1   2   3   
-4   5   6  ....
+Numbering the images as they are labeled:  
+0   1   2   
+3   4   5  ....
 
-Images 4, 6, 7, 9, 12, 13, and 15 look as though they should readily be easy to recognize by the classifier. 
-Things that may make the images difficult to classify:  
+Looking at the preprocessed images, all images except for 1, 2, 8, and 13 intuitively look as though they should readily be easy to recognize by the classifier. 
+Things that may make the other images difficult to classify:  
 1: Background building makes lines that might be easy to mix with the sign itself.  
-2: Dark image, and sign is the same base color as the background. Arrows are difficult to see.  
-3: Dark image, and number isn't easy to discern. The 80 looks like it could also be a 30.  
-5: Irregular shadows over the sign may confuse the classifier.  
-8: Dark image, and symbol is difficult to discern.  
-10: Image is 'hazy', and symbol is somewhat blurry and difficult to discern.  
-11: Image is also 'hazy'.  
-12: Image is slightly dark, which may obscure the color of the stop sign.  
-14: Image is slightly dark, although symbol is fairly clear.  
+2: Shadows/leaves across the '70' in the speed limit sign make it difficult to tell what that number is.  
+8: The bicycle icon in the sign is a little blurry, and it's not a very common shape. It could be easy to confuse with similarly shaped signs.  
+13: Like image 8, the animal icon in the sign is a little blurry, and it's not a very common shape. It could be easy to confuse with similarly shaped signs. 
 
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
@@ -197,24 +188,24 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| 1 - Road work     		| Roundabout mandatory   									| 
-| 2 - Roundabout mandatory     			| Speed limit (20km/h) 										|
-| 3 - Speed limit (80km/h)					| Speed limit (80km/h)										|
-| 4 - Stop	      		| Stop					 				|
-| 5 - Speed limit (70km/h)	| Speed limit (30km/h)      							|
-| 6 - General caution    		| General caution  									| 
-| 7 - No entry     			| No entry 										|
-| 8 - Road work				| Road work										|
-| 9 - Speed limit (30km/h)     	| Speed limit (30km/h)						|
-| 10 - Wild animals crossing | Wild animals crossing    				|
-| 11 - Turn right ahead     		| Turn right ahead  									| 
-| 12 - Stop     			| Stop 										|
-| 13 - Speed limit (70km/h)				| Speed limit (70km/h)											|
-| 14 - Bicycles crossing      		| Bicycles crossing			 				|
-| 15 - Stop		| Stop     							|
+| 0 - Roundabout mandatory     		|  Priority road with 99% certainty (but roundabout mandatory was the 2nd listing)								| 
+| 1 - Road work     			| Road work 										|
+| 2 - Speed limit (70km/h)					| Speed limit (70km/h)										|
+| 3 - Road work	      		| Road work					 				|
+| 4 - Stop	| Stop      							|
+| 5 - Speed limit (30km/h)    		| Speed limit (30km/h)  									| 
+| 6 - No entry     			| No entry 										|
+| 7 - Speed limit (80km/h)		| Speed limit (80km/h)									|
+| 8 - Bicycles crossing    	| Bicycles crossing					|
+| 9 - Stop | Stop    				|
+| 10 - General caution    		| General caution  									| 
+| 11 - Stop     			| Stop 										|
+| 12 - Turn right ahead				| Turn right ahead											|
+| 13 - Wild animals crossing      		| Wild animals crossing		 				|
+| 14 - Speed limit (70km/h)		| Speed limit (70km/h)     							|
 
 
-The model was able to correctly guess 12 of the 15 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of 6.7%. So... even though the test set indicates severe overfitting, a random sample of fifteen indicates a much better performance. 
+The model was able to correctly guess 14 of the 15 traffic signs, which gives an accuracy of **93.3%**. This is closer to the training validation of 93.9%, so this indicates that the model generalized well to these images. 
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
@@ -222,362 +213,362 @@ The code for making predictions on my final model is located in the 11th cell of
 
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
-Record: 1  
-     Probability #1:  
-     Class Label: Roundabout mandatory  
-     Probability Value - 3.63138   
-     
-     Probability #2:  
-     Class Label: Ahead only  
-     Probability Value - 0.246165   
-     
-     Probability #3:   
-     Class Label: Road work  
-     Probability Value - 0.0553061   
-     
-     Probability #4:   
-     Class Label: Speed limit (50km/h)   
-     Probability Value - -0.604808   
-     
-     Probability #5:    
-     Class Label: Keep right   
-     Probability Value - -1.60497   
-
-
-
-
-Record: 2   
-     Probability #1:    
-     Class Label: Speed limit (20km/h)   
-     Probability Value - 4.48252   
+Record: 0
+     Probability #1: 
+     Class Label: Priority road
+     Probability Value - 0.996679
 
      Probability #2: 
-     Class Label: Speed limit (70km/h)
-     Probability Value - 4.19348
+     Class Label: Roundabout mandatory
+     Probability Value - 0.00323869
 
      Probability #3: 
-     Class Label: Roundabout mandatory
-     Probability Value - 2.55606
+     Class Label: Speed limit (100km/h)
+     Probability Value - 8.23032e-05
 
      Probability #4: 
+     Class Label: End of all speed and passing limits
+     Probability Value - 1.66307e-07
+
+     Probability #5: 
+     Class Label: Speed limit (120km/h)
+     Probability Value - 1.70323e-08
+
+
+
+
+Record: 1
+     Probability #1: 
+     Class Label: Road work
+     Probability Value - 1.0
+
+     Probability #2: 
+     Class Label: Road narrows on the right
+     Probability Value - 6.94267e-17
+
+     Probability #3: 
+     Class Label: Speed limit (80km/h)
+     Probability Value - 5.24238e-17
+
+     Probability #4: 
+     Class Label: Dangerous curve to the right
+     Probability Value - 2.23018e-18
+
+     Probability #5: 
+     Class Label: Bumpy road
+     Probability Value - 4.83682e-19
+
+
+
+
+Record: 2
+     Probability #1: 
+     Class Label: Speed limit (70km/h)
+     Probability Value - 0.972135
+
+     Probability #2: 
      Class Label: Speed limit (30km/h)
-     Probability Value - 2.2762
+     Probability Value - 0.0278651
+
+     Probability #3: 
+     Class Label: Speed limit (80km/h)
+     Probability Value - 2.50644e-12
+
+     Probability #4: 
+     Class Label: Road work
+     Probability Value - 5.78686e-18
 
      Probability #5: 
      Class Label: Speed limit (50km/h)
-     Probability Value - 2.25183
+     Probability Value - 2.23039e-18
 
 
 
 
-Record: 3   
-     Probability #1:    
-     Class Label: Speed limit (80km/h)   
-     Probability Value - 9.20117   
+Record: 3
+     Probability #1: 
+     Class Label: Road work
+     Probability Value - 0.999999
 
-     Probability #2:   
-     Class Label: Speed limit (60km/h)   
-     Probability Value - 6.40215   
+     Probability #2: 
+     Class Label: Speed limit (80km/h)
+     Probability Value - 9.81208e-07
 
-     Probability #3:   
-     Class Label: Speed limit (120km/h)   
-     Probability Value - 5.93974   
+     Probability #3: 
+     Class Label: Dangerous curve to the right
+     Probability Value - 2.42511e-08
 
-     Probability #4:   
-     Class Label: Speed limit (100km/h)   
-     Probability Value - 5.02156   
+     Probability #4: 
+     Class Label: No passing for vehicles over 3.5 metric tons
+     Probability Value - 6.14101e-09
 
-     Probability #5:   
-     Class Label: Speed limit (50km/h)   
-     Probability Value - 4.87933   
-
-
-
-
-Record: 4   
-     Probability #1:   
-     Class Label: Stop   
-     Probability Value - 5.67519   
-
-     Probability #2:   
-     Class Label: No entry   
-     Probability Value - 0.058724   
-
-     Probability #3:   
-     Class Label: No passing for vehicles over 3.5 metric tons   
-     Probability Value - -0.941598   
-
-     Probability #4:   
-     Class Label: Keep right   
-     Probability Value - -1.5766   
-
-     Probability #5:   
-     Class Label: Go straight or right   
-     Probability Value - -1.60699   
+     Probability #5: 
+     Class Label: Bumpy road
+     Probability Value - 2.5833e-09
 
 
 
 
-Record: 5   
-     Probability #1:   
-     Class Label: Speed limit (30km/h)   
-     Probability Value - 4.73191   
+Record: 4
+     Probability #1: 
+     Class Label: Stop
+     Probability Value - 1.0
 
-     Probability #2:   
-     Class Label: Speed limit (70km/h)   
-     Probability Value - 3.84631   
+     Probability #2: 
+     Class Label: No vehicles
+     Probability Value - 1.06898e-12
 
-     Probability #3:   
-     Class Label: Yield   
-     Probability Value - 0.0805694   
+     Probability #3: 
+     Class Label: Keep right
+     Probability Value - 1.61259e-13
 
-     Probability #4:   
-     Class Label: Speed limit (50km/h)   
-     Probability Value - -0.155365   
+     Probability #4: 
+     Class Label: Speed limit (70km/h)
+     Probability Value - 4.26623e-14
 
-     Probability #5:   
-     Class Label: Roundabout mandatory   
-     Probability Value - -2.53838   
+     Probability #5: 
+     Class Label: Speed limit (30km/h)
+     Probability Value - 3.94399e-14
+
+
+
+
+Record: 5
+     Probability #1: 
+     Class Label: Speed limit (30km/h)
+     Probability Value - 1.0
+
+     Probability #2: 
+     Class Label: Speed limit (70km/h)
+     Probability Value - 2.4669e-11
+
+     Probability #3: 
+     Class Label: Speed limit (20km/h)
+     Probability Value - 2.3222e-11
+
+     Probability #4: 
+     Class Label: Speed limit (50km/h)
+     Probability Value - 2.99194e-20
+
+     Probability #5: 
+     Class Label: Speed limit (80km/h)
+     Probability Value - 6.56019e-22
 
 
 
 
 Record: 6
-     Probability #1:   
-     Class Label: General caution   
-     Probability Value - 12.2029   
+     Probability #1: 
+     Class Label: No entry
+     Probability Value - 1.0
 
-     Probability #2:   
-     Class Label: Traffic signals   
-     Probability Value - 7.98483   
+     Probability #2: 
+     Class Label: Stop
+     Probability Value - 2.94668e-16
 
-     Probability #3:   
-     Class Label: Right-of-way at the next intersection   
-     Probability Value - 7.7981   
+     Probability #3: 
+     Class Label: No passing
+     Probability Value - 1.82164e-22
 
-     Probability #4:   
-     Class Label: Wild animals crossing   
-     Probability Value - 5.14235   
+     Probability #4: 
+     Class Label: Keep left
+     Probability Value - 4.3587e-27
 
-     Probability #5:   
-     Class Label: Pedestrians   
-     Probability Value - 4.21125   
+     Probability #5: 
+     Class Label: Speed limit (70km/h)
+     Probability Value - 2.85273e-29
 
 
 
 
 Record: 7
-     Probability #1:   
-     Class Label: No entry   
-     Probability Value - 11.1719   
+     Probability #1: 
+     Class Label: Speed limit (80km/h)
+     Probability Value - 0.999981
 
-     Probability #2:   
-     Class Label: No passing   
-     Probability Value - 3.14426   
+     Probability #2: 
+     Class Label: Speed limit (50km/h)
+     Probability Value - 1.89584e-05
 
-     Probability #3:   
-     Class Label: Stop   
-     Probability Value - 1.96417   
+     Probability #3: 
+     Class Label: Speed limit (30km/h)
+     Probability Value - 1.37245e-07
 
-     Probability #4:   
-     Class Label: End of no passing   
-     Probability Value - 1.50554   
+     Probability #4: 
+     Class Label: Speed limit (100km/h)
+     Probability Value - 1.18157e-07
 
-     Probability #5:   
-     Class Label: Turn right ahead   
-     Probability Value - 0.290745   
-
-
-
-
-Record: 8   
-     Probability #1:   
-     Class Label: Road work   
-     Probability Value - 6.95533   
-
-     Probability #2:   
-     Class Label: Dangerous curve to the right   
-     Probability Value - 2.07115   
-
-     Probability #3:   
-     Class Label: Bumpy road   
-     Probability Value - 1.70295   
-
-     Probability #4:   
-     Class Label: Wild animals crossing   
-     Probability Value - 1.23056   
-
-     Probability #5:   
-     Class Label: Bicycles crossing   
-     Probability Value - 0.563636   
+     Probability #5: 
+     Class Label: Speed limit (60km/h)
+     Probability Value - 1.75002e-09
 
 
 
 
-Record: 9   
-     Probability #1:   
-     Class Label: Speed limit (30km/h)   
-     Probability Value - 1.85274   
+Record: 8
+     Probability #1: 
+     Class Label: Bicycles crossing
+     Probability Value - 1.0
 
-     Probability #2:   
-     Class Label: Speed limit (70km/h)   
-     Probability Value - 1.5838   
+     Probability #2: 
+     Class Label: Children crossing
+     Probability Value - 1.17513e-08
 
-     Probability #3:   
-     Class Label: Stop   
-     Probability Value - 1.24275   
+     Probability #3: 
+     Class Label: Road narrows on the right
+     Probability Value - 3.67772e-09
 
-     Probability #4:   
-     Class Label: Roundabout mandatory   
-     Probability Value - 0.569953   
+     Probability #4: 
+     Class Label: Road work
+     Probability Value - 3.48906e-10
 
-     Probability #5:   
-     Class Label: Speed limit (50km/h)   
-     Probability Value - -0.105905   
-
-
+     Probability #5: 
+     Class Label: Bumpy road
+     Probability Value - 1.73925e-10
 
 
-Record: 10   
-     Probability #1:   
-     Class Label: Wild animals crossing   
-     Probability Value - 8.16427   
 
-     Probability #2:   
-     Class Label: Dangerous curve to the left   
-     Probability Value - 5.15332   
 
-     Probability #3:   
-     Class Label: Double curve   
-     Probability Value - 3.95471   
+Record: 9
+     Probability #1: 
+     Class Label: Stop
+     Probability Value - 1.0
 
-     Probability #4:   
-     Class Label: Keep left   
-     Probability Value - 1.37947   
+     Probability #2: 
+     Class Label: Priority road
+     Probability Value - 1.43776e-13
 
-     Probability #5:   
-     Class Label: Right-of-way at the next intersection   
-     Probability Value - 0.871015   
+     Probability #3: 
+     Class Label: Speed limit (30km/h)
+     Probability Value - 2.28386e-16
+
+     Probability #4: 
+     Class Label: Turn right ahead
+     Probability Value - 7.86251e-17
+
+     Probability #5: 
+     Class Label: Keep right
+     Probability Value - 7.34148e-17
+
+
+
+
+Record: 10
+     Probability #1: 
+     Class Label: General caution
+     Probability Value - 1.0
+
+     Probability #2: 
+     Class Label: Pedestrians
+     Probability Value - 1.98359e-16
+
+     Probability #3: 
+     Class Label: Right-of-way at the next intersection
+     Probability Value - 2.48454e-20
+
+     Probability #4: 
+     Class Label: Traffic signals
+     Probability Value - 1.4698e-28
+
+     Probability #5: 
+     Class Label: Children crossing
+     Probability Value - 3.84731e-30
 
 
 
 
 Record: 11
-     Probability #1:   
-     Class Label: Turn right ahead   
-     Probability Value - 8.66461   
+     Probability #1: 
+     Class Label: Stop
+     Probability Value - 1.0
 
-     Probability #2:   
-     Class Label: Ahead only   
-     Probability Value - 4.46153   
+     Probability #2: 
+     Class Label: Speed limit (70km/h)
+     Probability Value - 2.54598e-17
 
-     Probability #3:   
-     Class Label: No passing for vehicles over 3.5 metric tons   
-     Probability Value - 1.87631   
+     Probability #3: 
+     Class Label: Speed limit (30km/h)
+     Probability Value - 7.63573e-18
 
-     Probability #4:   
-     Class Label: Speed limit (60km/h)   
-     Probability Value - 0.827817   
+     Probability #4: 
+     Class Label: No vehicles
+     Probability Value - 1.21613e-19
 
-     Probability #5:   
-     Class Label: Roundabout mandatory   
-     Probability Value - 0.532018   
-
-
-
-
-Record: 12   
-     Probability #1:    
-     Class Label: Stop   
-     Probability Value - 8.29253   
-
-     Probability #2:   
-     Class Label: Keep right   
-     Probability Value - -0.0729395   
-
-     Probability #3:   
-     Class Label: Go straight or right   
-     Probability Value - -0.0951887   
-
-     Probability #4:   
-     Class Label: Turn right ahead   
-     Probability Value - -1.21148   
-
-     Probability #5:   
-     Class Label: Bicycles crossing   
-     Probability Value - -1.59177   
+     Probability #5: 
+     Class Label: Keep right
+     Probability Value - 1.18259e-19
 
 
 
 
-Record: 13   
-     Probability #1:   
-     Class Label: Speed limit (70km/h)   
-     Probability Value - 4.35527   
+Record: 12
+     Probability #1: 
+     Class Label: Turn right ahead
+     Probability Value - 1.0
 
-     Probability #2:   
-     Class Label: No passing for vehicles over 3.5 metric tons   
-     Probability Value - 2.7583   
+     Probability #2: 
+     Class Label: Go straight or left
+     Probability Value - 5.13152e-09
 
-     Probability #3:   
-     Class Label: Priority road   
-     Probability Value - 2.70417   
+     Probability #3: 
+     Class Label: Keep left
+     Probability Value - 4.63151e-10
 
-     Probability #4:   
-     Class Label: Speed limit (50km/h)   
-     Probability Value - 2.21734   
+     Probability #4: 
+     Class Label: Roundabout mandatory
+     Probability Value - 1.64309e-13
 
-     Probability #5:   
-     Class Label: Speed limit (30km/h)   
-     Probability Value - 1.97318   
-
-
-
-
-Record: 14   
-     Probability #1:   
-     Class Label: Bicycles crossing   
-     Probability Value - 6.62385   
-
-     Probability #2:   
-     Class Label: Slippery road   
-     Probability Value - 5.86016   
-
-     Probability #3:   
-     Class Label: Road work   
-     Probability Value - 5.59542   
-
-     Probability #4:   
-     Class Label: Wild animals crossing   
-     Probability Value - 3.66721   
-
-     Probability #5:   
-     Class Label: Road narrows on the right   
-     Probability Value - 3.37602   
+     Probability #5: 
+     Class Label: No passing
+     Probability Value - 5.28265e-16
 
 
 
 
-Record: 15
-     Probability #1:   
-     Class Label: Stop   
-     Probability Value - -0.422354   
+Record: 13
+     Probability #1: 
+     Class Label: Wild animals crossing
+     Probability Value - 1.0
 
-     Probability #2:   
-     Class Label: Speed limit (20km/h)   
-     Probability Value - -3.32931   
+     Probability #2: 
+     Class Label: Double curve
+     Probability Value - 1.7053e-07
 
-     Probability #3:   
-     Class Label: Roundabout mandatory   
-     Probability Value - -4.17921   
+     Probability #3: 
+     Class Label: Road narrows on the right
+     Probability Value - 5.95641e-11
 
-     Probability #4:   
-     Class Label: Speed limit (30km/h)   
-     Probability Value - -4.37682   
+     Probability #4: 
+     Class Label: Road work
+     Probability Value - 2.79197e-11
 
-     Probability #5:   
-     Class Label: Yield   
-     Probability Value - -5.15678   
+     Probability #5: 
+     Class Label: Beware of ice/snow
+     Probability Value - 6.83629e-14
+
+
+
+
+Record: 14
+     Probability #1: 
+     Class Label: Speed limit (70km/h)
+     Probability Value - 1.0
+
+     Probability #2: 
+     Class Label: Speed limit (20km/h)
+     Probability Value - 6.03635e-12
+
+     Probability #3: 
+     Class Label: Speed limit (30km/h)
+     Probability Value - 1.4846e-15
+
+     Probability #4: 
+     Class Label: Speed limit (120km/h)
+     Probability Value - 9.38704e-22
+
+     Probability #5: 
+     Class Label: Keep left
+     Probability Value - 3.22007e-23   
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
