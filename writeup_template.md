@@ -138,7 +138,6 @@ a learning rate of .001. Early stopping could perhaps have been utilized, but it
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-(Training: Not printed during last run)
 * validation set accuracy of 93.9%
 * test set accuracy of 91.9%
 
@@ -295,7 +294,7 @@ For the first image, the model is relatively sure that this is a stop sign (prob
       * Class Label: Road work
       * Probability Value - 0.999999
 
- * Probability #2: 
+ * Probability #2:
       * Class Label: Speed limit (80km/h)
       * Probability Value - 9.81208e-07
 
