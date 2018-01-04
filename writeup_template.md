@@ -16,7 +16,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[fifteen_images]: fifteen_image_test_set/fifteen_additional_pictures.png "Traffic Sign 1"
+[fifteen_images]: fifteen_image_test_set/fifteen_additional_pictures.png "Fifteen Original Signs"
 [train_dist]: ./writeup_pics/train_class_dist.png "Training target distribution"
 [test_dist]: ./writeup_pics/test_class_dist.png "Testing target distribution"
 [valid_dist]: ./writeup_pics/valid_class_dist.png "Validation target distribution"
