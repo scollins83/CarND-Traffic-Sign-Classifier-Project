@@ -217,14 +217,15 @@ The code for making predictions on my final model is located in the 11th cell of
 
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
-Record: 0
-     Probability #1: 
-     Class Label: Priority road
-     Probability Value - 0.996679
 
-     Probability #2: 
-     Class Label: Roundabout mandatory
-     Probability Value - 0.00323869
+**Record: 0**
+ * Probability #1: 
+      * Class Label: Priority road
+      * Probability Value - 0.996679
+
+ * Probability #2: 
+      * Class Label: Roundabout mandatory
+      * Probability Value - 0.00323869
 
      Probability #3: 
      Class Label: Speed limit (100km/h)
