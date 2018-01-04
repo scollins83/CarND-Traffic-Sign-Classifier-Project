@@ -21,9 +21,10 @@ The goals / steps of this project are the following:
 [test_dist]: ./writeup_pics/test_class_dist.png "Testing target distribution"
 [valid_dist]: ./writeup_pics/valid_class_dist.png "Validation target distribution"
 [total_dist]: ./writeup_pics/total_class_dist.png "Total target value distribution"
-[original_preprocess]: ./writeup_pics/original_preprocess.png "Original preprocessing image"
-[gray_scale_only]: ./writeup_pics/gray_scale_only.png "Grayscale preprocessing example"
-[normal_preprocess]: ./writeup_pics/normal_preprocess.png "Normalized image"
+[original_preprocess]: ./writeup_pics/original_preprocess.png "Original Example"
+[gray_scale_only]: ./writeup_pics/gray_scale_only.png "Grayscale Example"
+[normal_preprocess]: ./writeup_pics/normal_preprocess.png "Normalized Example"
+[normal_grayscale_preprocess]: ./writeup_pics/normalized_grayscale_preprocess.png "Grayscaled and then Normalized Example"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -67,6 +68,7 @@ do this from historical data that is completely separate from the validation and
 not part of a larger data ecosystem, I just combined the original three sets for exploration). 
 Also note that although the sign classes are numeric in this case, this is a distibution of sign class counts, not the 
 integer value of the signs' class. 
+
 #### Entire dataset:
 ![total distribution][total_dist]
 
@@ -88,23 +90,22 @@ Now, to compare, here are the distributions of the similar subsets.
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-To preprocess the images prior to training a convolutional model on it, I did a few things. 
-While grayscale was used as an option in other labs for this course, I noticed during training that it did not 
-appear to yield as good of an accuracy score as just leaving 3 dimensions for color in the images, so I removed this 
-step. Thinking critically about this, while markings on signs are usually very distinct, the color of a traffic sign also usually conveys important information to drivers, particularly for sign groupings, and presence or absence of certain colors might help a classifier be more certain of the probability of a sign. 
+To preprocess the images prior to training a convolutional model on it, I did a few things. I will walk through that process, showing some examples. 
 
 **Original Image:**  
 ![alt_text][original_preprocess]
 
+First, I converted the images to grayscale. Looking visually at the image afterward, this can help simplify the features, and may make it simpler for the model to learn about shapes of signs and characters/icons on the sign. 
+
 **Gray-scale applied to original image:**  
 ![alt text][gray_scale_only]
 
-Instead of applying gray-scale since it appeared to make the accuracy score worse, I just normalized the image data to elimnate outlier pixel values and to make sure the pixel values have a zero mean and equal variance. 
+Next, I normalized the grayscaled image, to bring values within a range relative to one another and making it easier for the model to learn necessary patterns from the pixel values in general. 
 
-**Normalization applied to original image:**  
-![alt_text][normal_preprocess]
+**Normalization applied to grayscaled image, and also what the same normalization function looks like when applied to the original 3-channel color image:**  
+![alt_text][normal_grayscale_preprocess] vs. ![alt_text][normal_preprocess]
   
-  
+Lastly, I had to reshape the images to make sure the single channel for the grayscale image was explicitly noted, in order to be able to feed it to the tensorflow input layers. This didn't change the image visually.  
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
