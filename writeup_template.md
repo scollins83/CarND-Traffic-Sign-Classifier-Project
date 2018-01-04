@@ -172,8 +172,11 @@ Here are fifteen more German traffic signs that I found on the web:
 ![alt text][fifteen_images]  
   
 Numbering the images as they are labeled:  
-0   1   2   
-3   4   5  ....
+0 _  1 _  2   
+3 _  4 _  5  ....
+
+Here are the same images, after preprocessing:
+![alt text][fifteen_normed_images]
 
 Looking at the preprocessed images, all images except for 1, 2, 8, and 13 intuitively look as though they should readily be easy to recognize by the classifier. 
 Things that may make the other images difficult to classify:  
